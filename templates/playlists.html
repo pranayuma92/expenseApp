@@ -1,0 +1,20 @@
+<ion-view view-title="Daftar Expense">
+  <ion-nav-buttons side="secondary">
+     <button ng-click="addMeta()" class="button button-icon button-clear ion-plus"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list ng-repeat="meta in metaData">
+      <ion-item  class="item-icon-left" ng-click="metaDetail(meta.$id)">
+        <i class="icon ion-ios-pricetags-outline"></i>
+        <b>{{meta.title}}</b>
+        <p>{{meta.date}}</p>
+        <ion-option-button class="button button-assertive" ng-click="removeMeta(meta.$id)">
+		  <i class ="icon ion-android-delete" ></i>
+	    </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <!-- <pre>
+  	{{metaData | json}}
+  </pre> -->
+</ion-view>

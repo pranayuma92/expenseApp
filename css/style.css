@@ -1,0 +1,27 @@
+/* Empty. Add your own CSS if you like */
+.fab-add-expense,
+.fab-add-income {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 60px;
+    width: 60px;
+    background: #387ef5;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 65px;
+    font-size: 25px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+}
+
+.fab-add-expense:active,
+.fab-add-income:active{
+	background-color: #0c60ee;
+    transform: scale(1.05);
+}
+
+.list.list-inset.total {
+    margin-bottom: 80px;
+}

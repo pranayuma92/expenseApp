@@ -1,0 +1,55 @@
+<ion-modal-view>
+ <ion-header-bar  class="bar-stable">
+	 <div class="buttons">
+		 <button class="button button-clear button-icon ion-android-close" ng-click="modal.hide();"></button>
+	 </div>
+	<h1 class="title">
+		{{metaObject.title}}
+	</h1>
+  </ion-header-bar>
+  <ion-content class="padding">
+  	<div class="button-bar button-positive">
+	  <a class="button button-positive" ng-click="changeExpense()">Pengeluaran</a>
+	  <a class="button button-positive" ng-click="changeIncome()">Pemasukan</a>
+	</div>
+	<div ng-if="expenseView">
+		<div class="list list-inset">
+		    <div class="item" ng-repeat="expense in expenseData" ng-click="editItem(metaObject.$id, expense)">
+		      {{expense.title}}
+		        <span class="item-note">
+			      {{expense.amount | currency:"Rp ": 0}}
+			    </span>
+		    </div>
+		</div>
+		<div class="list list-inset total">
+			<div class="item">
+				<b>Total</b>
+				<span class="item-note"><b>{{expenseData|total:'amount' | currency:"Rp ": 0}}</b></span>
+			</div>
+		</div>
+  	</div>
+
+  	<div ng-if="incomeView">
+  		<div class="list list-inset">
+		    <div class="item" ng-repeat="expense in incomeData" ng-click="editItem(metaObject.$id, expense)">
+		      {{expense.title}}
+		        <span class="item-note">
+			      {{expense.amount | currency:"Rp ": 0}}
+			    </span>
+		    </div>
+		</div>
+		<div class="list list-inset total">
+			<div class="item">
+				<b>Total Terpakai</b>
+				<span class="item-note"><b>{{expenseData|total:'amount'| currency:"Rp ": 0}}</b></span>
+			</div>
+			<div class="item">
+				<b>Total Sisa</b>
+				<span class="item-note"><b>{{(incomeData|total:'amount') - (expenseData|total:'amount') | currency:"Rp ": 0}}</b></span>
+			</div>
+		</div>
+  	</div>
+  	<!-- <p>{{metaObject.$id}}</p> -->
+  </ion-content>
+  <div class="fab-add-income" ng-click="addItem(metaObject.$id)"><i class="icon ion-plus"></i></div>
+</ion-modal-view>
